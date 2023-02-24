@@ -1,0 +1,27 @@
+### get all persons
+GET http://localhost:8081/api/persons
+
+### get specific person
+GET http://localhost:8081/api/persons/10
+
+
+### create new person
+POST http://localhost:8081/api/persons
+Content-Type: application/json
+
+{
+    "name": "joe",
+    "number": "123-456-789"
+}
+
+### update person
+PUT http://localhost:8081/api/persons/1
+Content-Type: application/json
+
+  {
+    "name": "Arto Hellas",
+    "number": "040-12345-6"
+  }
+
+### delete person
+DELETE http://localhost:8081/api/persons/5
