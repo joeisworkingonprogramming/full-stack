@@ -5,6 +5,7 @@ const morgan = require("morgan");
 
 // middleware start
 app.use(express.json());
+app.use(express.static("build"));
 // app.use(cors());
 morgan.token("body", function (req, res) {
   const body = req.body;
