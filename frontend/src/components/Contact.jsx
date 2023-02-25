@@ -8,7 +8,6 @@ import Filter from "./Filter";
 const Contact = () => {
   const [filter, setFilter] = useState("");
   const [contacts, setContacts] = useState([]);
-  const [contact, setContact] = useState({ name: "", number: "" });
   const [message, setMessage] = useState({
     type: "success",
     content: "",
@@ -26,27 +25,23 @@ const Contact = () => {
       setMessage({ type: "success", content: "" });
     }, 3000);
   };
-  const handleNameChange = (event) => {
-    setContact({ ...contact, name: event.target.value });
-  };
-  const handleNumberChange = (event) => {
-    setContact({ ...contact, number: event.target.value });
-  };
   const handleFilterChange = (event) => {
     setFilter(event.target.value);
   };
-  const handleAddClick = (event) => {
-    axios
-      .post("/api/persons", {
-        name: contact.name,
-        number: contact.number,
-      })
-      .then((response) => {
-        setContacts([...contacts, response.data]);
-        setContact({ name: "", number: "" });
-        displayMessage("success", "contact added");
-      })
-      .catch(() => displayMessage("error", "failed to add new contact"));
+  const handleAddClick = (contact, resetCallback) => {
+    return () => {
+      axios
+        .post("/api/persons", {
+          name: contact.name,
+          number: contact.number,
+        })
+        .then((response) => {
+          setContacts([...contacts, response.data]);
+          displayMessage("success", "contact added");
+          resetCallback();
+        })
+        .catch(() => displayMessage("error", "failed to add new contact"));
+    };
   };
 
   const handleDelete = (contact) => {
@@ -65,12 +60,7 @@ const Contact = () => {
     <>
       <Notification message={message} />
       <Filter filter={filter} handleFilterChange={handleFilterChange} />
-      <AddContact
-        newContact={contact}
-        handleNameChange={handleNameChange}
-        handleNumberChange={handleNumberChange}
-        handleAddClick={handleAddClick}
-      />
+      <AddContact handleAddClick={handleAddClick} />
       <ShowContact
         searchKey={filter}
         contents={contacts}

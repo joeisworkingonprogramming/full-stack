@@ -1,11 +1,12 @@
-import React from "react";
+import { useState } from "react";
 
-const AddContact = ({
-  newContact,
-  handleNameChange,
-  handleNumberChange,
-  handleAddClick,
-}) => {
+const AddContact = ({ handleAddClick }) => {
+  const [name, setName] = useState("");
+  const [number, setNumber] = useState("");
+  const resetCallback = () => {
+    setName("");
+    setNumber("");
+  };
   return (
     <>
       <h2>Add Contact</h2>
@@ -13,19 +14,27 @@ const AddContact = ({
         <span>Name: </span>
         <input
           type="text"
-          value={newContact.name}
-          onChange={handleNameChange}
+          value={name}
+          onChange={(event) => {
+            setName(event.target.value);
+          }}
         />
       </p>
       <p>
         <span>Number: </span>
         <input
           type="text"
-          value={newContact.number}
-          onChange={handleNumberChange}
+          value={number}
+          onChange={(event) => {
+            setNumber(event.target.value);
+          }}
         />
       </p>
-      <button onClick={handleAddClick}>Add</button>
+      <button
+        onClick={handleAddClick({ name: name, number: number }, resetCallback)}
+      >
+        Add
+      </button>
     </>
   );
 };
