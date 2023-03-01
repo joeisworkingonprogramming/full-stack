@@ -4,6 +4,7 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const db = require("./db");
+const routes = require("./routes");
 // const cors = require("cors");
 
 db.connect(app);
@@ -21,7 +22,7 @@ app.use(
 );
 
 // adding routes
-require("./routes")(app);
+routes(app);
 
 // server listening
 const PORT = process.env.PORT || 8081;
