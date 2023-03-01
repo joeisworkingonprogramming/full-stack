@@ -10,7 +10,7 @@ db.connect(app);
 
 // middleware start
 app.use(express.json());
-app.use(express.static("build"));
+app.use(express.static("public"));
 // app.use(cors());
 morgan.token("body", function (req, res) {
   const body = req.body;
