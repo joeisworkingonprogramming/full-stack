@@ -15,7 +15,7 @@ const Contact = () => {
   useEffect(() => {
     axios
       .get("/api/persons")
-      .then((res) => res.data)
+      .then((res) => res.data.data)
       .then((data) => setContacts(data))
       .catch(() => displayMessage("error", "failed to get persons"));
   }, []);
@@ -36,20 +36,29 @@ const Contact = () => {
           number: contact.number,
         })
         .then((response) => {
-          setContacts([...contacts, response.data]);
-          displayMessage("success", "contact added");
+          const newContact = response.data.data;
+          setContacts([...contacts, newContact]);
+          displayMessage(
+            "success",
+            `Success to add contact: ${newContact.name}`
+          );
           resetCallback();
         })
-        .catch(() => displayMessage("error", "failed to add new contact"));
+        .catch((err) => {
+          // debugger;
+          displayMessage(
+            "error",
+            `Failed to add new contact with error message: ${err.response.data.message}`
+          );
+        });
     };
   };
-
   const handleDelete = (contact) => {
     return () => {
       axios
-        .delete(`/api/persons/${contact.id}`)
+        .delete(`/api/persons/${contact._id}`)
         .then(() => {
-          setContacts(contacts.filter((c) => c.id !== contact.id));
+          setContacts(contacts.filter((c) => c._id !== contact._id));
           displayMessage("success", "contact deleted");
         })
         .catch(() => displayMessage("error", "failed to delete contact"));

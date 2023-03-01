@@ -11,7 +11,7 @@ const ShowContact = ({ searchKey, contents, handleDelete }) => {
         })
         .map((contact) => {
           return (
-            <div key={contact.id}>
+            <div key={contact._id}>
               <span>{contact.name} </span>
               <span>{contact.number}</span>
               <button onClick={handleDelete(contact)}>delete</button>

@@ -1,0 +1,10 @@
+{
+  "production": {
+    "PORT": 8081,
+    "MONGODB_URI": "mongodb+srv://fullstack:8r3LP5PLqOW4vNfb@mongo.l2zjbiy.mongodb.net/personProd?retryWrites=true&w=majority"
+  },
+  "development": {
+    "PORT": 8081,
+    "MONGODB_URI": "mongodb+srv://fullstack:8r3LP5PLqOW4vNfb@mongo.l2zjbiy.mongodb.net/personDev?retryWrites=true&w=majority"
+  }
+}
