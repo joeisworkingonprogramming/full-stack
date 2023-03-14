@@ -1,12 +1,8 @@
 import React from "react";
-import Contact from "./components/Contact";
+import Resume from "./components/resume/Resume";
 
 const App = () => {
-  return (
-    <>
-      <Contact />
-    </>
-  );
+  return <Resume />;
 };
 
 export default App;

@@ -1,0 +1,122 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --main-bg-color: #008000;
+}
+
+.page-wrapper {
+  overflow-x: hidden;
+  background: #cccccc;
+  margin: 0;
+  padding: 0;
+  print-color-adjust: exact;
+  font-family: "Open Sans", sans-serif;
+  box-sizing: border-box;
+}
+.page {
+  background: white;
+  position: relative;
+  width: 23cm;
+  display: block;
+  page-break-after: auto;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.resume {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+.resume-header {
+  color: white;
+  height: 100px;
+  background-color: var(--main-bg-color);
+  box-shadow: inset 0px 0px 200px #301030;
+  padding: 10px 100px;
+}
+.position {
+  margin: 0;
+  font-size: 22px;
+  color: white;
+}
+.name {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  font-size: 56px;
+  color: white;
+  text-transform: uppercase;
+  line-height: 56px;
+}
+.info-flex {
+  color: white;
+  display: flex;
+  font-size: 14px;
+}
+
+.email {
+  font-size: 14px;
+  color: #fff;
+  text-decoration: none;
+  margin-right: 20px;
+}
+.email-text {
+  margin-left: 10px;
+}
+
+.phone {
+  font-size: 14px;
+  color: #fff;
+  text-decoration: none;
+  display: block;
+}
+.phone-text {
+  margin-left: 10px;
+}
+.spacer {
+  width: 100%;
+  border-bottom: 1px solid var(--main-bg-color);
+  margin: 5px 0 10px;
+}
+.each-experience {
+  margin-bottom: 30px;
+}
+
+.resume-body {
+  padding: 40px 100px;
+}
+
+.body-title {
+  margin: 0;
+  color: var(--main-bg-color);
+  font-size: 26px;
+  text-transform: uppercase;
+}
+
+.about-section,
+.education-section {
+  margin-bottom: 20px;
+}
+
+.show-text {
+  margin: 10px 0 10px 50px;
+  font-size: 14px;
+}
+
+.highlight-text {
+  font-weight: 100;
+  color: #008000;
+  font-size: 16px;
+}
+.highlight-description {
+  font-weight: 550;
+  margin: 0;
+  color: #050f05;
+  font-size: 17px;
+}
+.time-period {
+  float: right;
+}
