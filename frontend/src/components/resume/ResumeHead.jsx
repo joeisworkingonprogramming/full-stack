@@ -1,5 +1,5 @@
 import React from "react";
-import { FaEnvelope, FaPhone } from "react-icons/fa";
+import { FaEnvelope, FaPhone, FaReadme } from "react-icons/fa";
 
 const ResumeHead = ({ position, name, contact }) => {
   return (
@@ -9,15 +9,17 @@ const ResumeHead = ({ position, name, contact }) => {
         {name && name.first} {name && name.last}
       </h1>
       <div className="info-flex">
-        <div className="email">
-          <span className="icon-class">
-            <FaEnvelope />
-          </span>
-          <span className="email-text">{contact && contact.email}</span>
+        <div className="contact-item">
+          <FaEnvelope />
+          <span className="contact-text">{contact && contact.email}</span>
         </div>
-        <div className="phone">
+        <div className="contact-item">
           <FaPhone />
-          <span className="phone-text">{contact && contact.phone}</span>
+          <span className="contact-text">{contact && contact.phone}</span>
+        </div>
+        <div className="contact-item">
+          <FaReadme />
+          <span className="contact-text">{contact && contact.web}</span>
         </div>
       </div>
     </div>

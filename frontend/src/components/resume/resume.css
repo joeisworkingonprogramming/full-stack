@@ -57,23 +57,14 @@
   font-size: 14px;
 }
 
-.email {
-  font-size: 14px;
-  color: #fff;
-  text-decoration: none;
-  margin-right: 20px;
-}
-.email-text {
-  margin-left: 10px;
-}
-
-.phone {
+.contact-item {
   font-size: 14px;
   color: #fff;
   text-decoration: none;
   display: block;
+  margin-right: 20px;
 }
-.phone-text {
+.contact-text {
   margin-left: 10px;
 }
 .spacer {
