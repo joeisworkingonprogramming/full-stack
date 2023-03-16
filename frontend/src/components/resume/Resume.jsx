@@ -12,7 +12,9 @@ const Resume = () => {
 
   useEffect(() => {
     axios
+      // dev env
       // .get("/api/resumes/640836af7d66c8b4ac8a386f")
+      // prod env
       .get("/api/resumes/64102c873c9abff4bcf3a14c")
       .then((res) => res.data.data)
       .then((data) => setResume(data))
